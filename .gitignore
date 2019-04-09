@@ -1,0 +1,5 @@
+build
+.idea
+.vscode
+.gradle
+!gradle-wrapper.jar

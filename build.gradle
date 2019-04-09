@@ -1,0 +1,15 @@
+plugins {
+  id 'java-library'
+  id 'io.freefair.lombok' version '3.2.0'
+}
+
+group 'com.github.muxfe.contrib'
+version '0.0.0'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testImplementation 'junit:junit:4.12'
+}
