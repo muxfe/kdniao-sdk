@@ -9,6 +9,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.MissingResourceException;
+
 @Slf4j
 public class KdniaoServiceTest {
 
@@ -16,16 +18,27 @@ public class KdniaoServiceTest {
 
   @Before
   public void setup() {
-    service = new KdniaoServiceImpl(
-      KdniaoConfiguration.builder().
-        eBusinessID(System.getenv("E_BUSINESS_ID")).
-        appKey(System.getenv("APP_KEY")).
-        build()
-    );
+    try {
+      service = new KdniaoServiceImpl(
+        KdniaoConfiguration.builder().
+          eBusinessID(getenv("E_BUSINESS_ID")).
+          appKey(getenv("APP_KEY")).
+          build()
+      );
+    } catch (MissingResourceException e) {
+      log.error("{} is not set", e.getKey());
+    }
+  }
+
+  private String getenv(String name) {
+    val value = System.getenv(name);
+    if (value == null) throw new MissingResourceException("", "", name);
+    return value;
   }
 
   @Test
   public void track() {
+    if (service == null) return;
     val p = KdniaoService.TrackParameters.builder().
       shipperCode("SF").
       logisticCode("118650888018").
@@ -46,6 +59,7 @@ public class KdniaoServiceTest {
   public void sign() throws Exception {
     val service = new KdniaoServiceImpl(
       KdniaoConfiguration.builder().
+        eBusinessID("").
         appKey("00000000-0000-0000-0000-000000000000").
         build()
     );

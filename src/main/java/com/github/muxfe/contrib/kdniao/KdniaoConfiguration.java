@@ -1,14 +1,15 @@
 package com.github.muxfe.contrib.kdniao;
 
 import lombok.Builder;
+import lombok.NonNull;
 import lombok.Value;
 
 @Value
 @Builder
 public class KdniaoConfiguration {
 
-  String eBusinessID;
+  @NonNull String eBusinessID;
 
-  String appKey;
+  @NonNull String appKey;
 
 }
