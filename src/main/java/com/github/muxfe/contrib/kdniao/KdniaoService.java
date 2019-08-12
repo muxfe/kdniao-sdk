@@ -19,6 +19,7 @@ public interface KdniaoService {
     String orderCode;
     String shipperCode;
     String logisticCode;
+    String customerName;
   }
 
   @Data
@@ -33,13 +34,12 @@ public interface KdniaoService {
       String remark;
     }
 
-    @UtilityClass
     public static class State {
-      public final Integer NO_TRACE = 0;
-      public final Integer COLLECTED = 1;
-      public final Integer DELIVERING = 2;
-      public final Integer SIGNED = 3;
-      public final Integer PROBLEM = 4;
+      public static final Integer NO_TRACE = 0;
+      public static final Integer COLLECTED = 1;
+      public static final Integer DELIVERING = 2;
+      public static final Integer SIGNED = 3;
+      public static final Integer PROBLEM = 4;
     }
   }
 
