@@ -5,9 +5,9 @@
 ## 目前支持的 API
 
 - [x] 即时查询 [track](https://www.kdniao.com/api-track)
-- [ ] 物流跟踪 [follow](https://www.kdniao.com/api-follow)
+- [x] 物流跟踪 [follow](https://www.kdniao.com/api-follow)
 - [ ] 在途监控 [monitor](https://www.kdniao.com/api-monitor)
-- [ ] 单号识别 [recognise](https://www.kdniao.com/api-recognise)
+- [x] 单号识别 [recognise](https://www.kdniao.com/api-recognise)
 
 ## Maven 安装
 
