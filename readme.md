@@ -49,6 +49,7 @@ KdniaoService kdniaoService =
 TrackParameters parameters =
   TrackParameters.builder().
       shipperCode("SF").
+      customerName("收件人/发件人 手机后4位").
       logisticCode("118650888018").
       build();
 
