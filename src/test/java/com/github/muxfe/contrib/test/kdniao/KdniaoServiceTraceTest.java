@@ -11,7 +11,7 @@ import lombok.val;
 public class KdniaoServiceTraceTest {
 
 	public static void main(String[] args) {
-		val service = new KdniaoServiceImpl(KdniaoConfiguration.builder().eBusinessID("1565068").appKey("c2599a03-9cb8-441b-a935-db7a66a548f3").build());
+		val service = new KdniaoServiceImpl(KdniaoConfiguration.builder().eBusinessID("xxxxxx").appKey("0000-9cb8-00000-0000-0000").build());
 		val p = KdniaoService.RecogniseParameters.builder().logisticCode("118650888018").build();
 		RecogniseResult result = service.recognise(p);
 		for (Shipper shipper : result.getShippers()) {
