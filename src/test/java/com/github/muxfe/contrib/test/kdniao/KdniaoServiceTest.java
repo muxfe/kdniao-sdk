@@ -65,7 +65,7 @@ public class KdniaoServiceTest {
     );
     val p = KdniaoService.TrackParameters.builder().
       shipperCode("SF").
-      logisticCode("118650888018").
+      logisticCode("118650888018").customerName("6833").
       build();
     val data = service.getMapper().writeValueAsString(p);
     val dataSign = service.sign(data);
