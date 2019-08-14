@@ -14,24 +14,31 @@
 添加 JitPack Repository 到 `pom.xml`:
 
 ```xml
-<repositories>
-  <repository>
-    <id>jitpack.io</id>
-    <url>https://jitpack.io</url>
-  </repository>
-</repositories>
+<repository>
+	<id>nutz</id>
+	<url>http://jfrog.nutz.cn/artifactory/libs-release</url>
+</repository>
+<repository>
+	<id>nutz-snapshots</id>
+	<url>http://jfrog.nutz.cn/artifactory/snapshots</url>
+	<snapshots>
+		<enabled>true</enabled>
+		<updatePolicy>always</updatePolicy>
+	</snapshots>
+	<releases>
+	<enabled>false</enabled>
+	</releases>
+</repository>
 ```
 
 添加 Kdniao SDK 到 `pom.xml`:
 
 ```xml
-<dependencies>
   <dependency>
-    <groupId>com.github.muxfe</groupId>
-    <artifactId>kdniao-sdk</artifactId>
-    <version>11c9a7ad8b</version>
+    <groupId>com.github.muxfe.contrib</groupId>
+  	<artifactId>kdniao-sdk</artifactId>
+  	<version>1.0.1</version>
   </dependency>
-</dependencies>
 ```
 
 ## 使用
@@ -54,6 +61,22 @@ TrackParameters parameters =
       build();
 
 TrackResult result = kdniaoService.track(parameters);
+
+
+RecogniseParameters parameters =
+  RecogniseParameters.builder().
+      logisticCode("118650888018").
+      build();
+
+RecogniseResult result = kdniaoService.recognise(parameters);
+
+FollowParameters parameters =
+  FollowParameters.builder().
+      shipperCode("SF").
+      logisticCode("118650888018").
+      build();
+
+FollowResult result = kdniaoService.follow(parameters);
 ```
 
 ## License
